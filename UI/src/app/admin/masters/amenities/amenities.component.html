@@ -1,0 +1,33 @@
+<div class="container mt-3">
+    <button class="btn btn-primary" (click)="addtypeclick()">Add Amenities</button>
+    </div>
+    <div class="container mt-3" *ngIf='isNew'>
+      <form (ngSubmit)="clicksubmit(form)" #form="ngForm">
+      <div class="from-group">
+        <div class="col-md-4">
+        <label class="control-label">Amenities</label>
+        <input type="text" class="form-control" required name="amenities" #type="ngModel" [(ngModel)]='menu'>
+        <div class="text-danger" *ngIf="type.invalid && (type.touched || type.dirty)">Types Field should not be empty</div>
+      </div>
+      <button class="btn btn-success ml-lg-2 mt-2" [disabled]='form.invalid'>Save</button>
+    </div>
+    </form>
+    </div>
+    
+    
+    <div class="container mt-5">
+      <table class="table">
+        <thead>
+          <th>Sl.No</th>
+          <th>Amenities</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of amenities; let i=index">
+            <td>{{i+1}}</td>
+            <td>{{data.amenities}}</td>
+            <td><a (click)="menuupdate(data)">Edit</a> | Delete </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

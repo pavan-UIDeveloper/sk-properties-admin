@@ -1,0 +1,61 @@
+<img src="../../assets/log.png">
+<div class="">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-link" routerLink="/"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item ml-5">
+        <a class="nav-link" routerLink="/admin/websettings" routerLinkActive="menuactive" [routerLinkActiveOptions]="{exact:true}">Web Settings</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  routerLinkActive="menuactive">Masters</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="/admin/masters/types">Types</a>
+          <a class="dropdown-item" routerLink="/admin/masters/statuses">Statuses</a>
+          <a class="dropdown-item" routerLink="/admin/masters/possession">Possession</a>
+          <a class="dropdown-item" routerLink="/admin/masters/age">Age</a>
+          <a class="dropdown-item" routerLink="/admin/masters/amenities">Amenities</a>
+          <a class="dropdown-item" routerLink="/admin/masters/facing">Facing</a>
+          <a class="dropdown-item" routerLink="/admin/masters/furnishing">Furnishing States</a>
+          <a class="dropdown-item" routerLink="/admin/masters/florings">Florings</a>
+          <a class="dropdown-item" routerLink="/admin/masters/parkings">Parkings</a>
+          <a class="dropdown-item" routerLink="/admin/masters/measurements">Measurements</a>
+          </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/admin/properties" routerLinkActive="menuactive">Properties</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" routerLinkActive="menuactive">Location Management</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="/admin/locationmanagement/country">Countries</a>
+          <a class="dropdown-item" routerLink="/admin/locationmanagement/states">States</a>
+          <a class="dropdown-item" routerLink="/admin/locationmanagement/districts">Districts</a>
+          <a class="dropdown-item" routerLink="/admin/locationmanagement/mandals">Mandals</a>
+          <a class="dropdown-item" routerLink="/admin/locationmanagement/villages">Villages</a>
+        </div>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  routerLinkActive="menuactive">Admin Management</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="/admin/admin_management/changepassword">Change Password</a>
+          <a class="dropdown-item" routerLink="/admin/admin_management/logout">Logout</a>
+          </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
+
+<router-outlet></router-outlet>
+<footer class="page-footer font-small blue pt-4">
+
+  <div class="footer-copyright text-center py-3">&copy; 2019 All Rights Reserved</div>
+
+</footer>
+
+

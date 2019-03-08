@@ -1,0 +1,101 @@
+
+<div class="container">
+  <button class="btn btn-primary mt-5" (click)="addNew()">{{showBtn}}</button>
+</div>
+
+<div class="container" *ngIf='isNew'>
+<div class="col-md-3">
+  <form (ngSubmit)="sendForm(form)" #form='ngForm'>
+    <div class="form-group">
+    <label class="control-label">Eneter Country Name</label>
+    <input type="text" class="form-control" required name='country' #country='ngModel' [(ngModel)]="locationModel.countryName">
+    <div class="text-danger" *ngIf='country.invalid && (country.touched || country.dirty)'>This field should Not be Empty</div>
+  </div>
+  <div class="m-2">
+    <input type="file" (change)="imageUpload($event)" class="form-control">
+  </div>
+  <div class="image_preview" *ngIf="image_preview">
+    <img [src]="image_preview">
+  </div>
+    <button class="btn btn-success" [disabled]='country.invalid' >{{actionBtn}}</button>
+  </form>
+</div>
+</div>
+
+
+<div class="container mt-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sl.no</th>
+      <th>Country Name</th>
+      <th>Country Flag</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of allCountries; let i=index">
+        <td>{{i+1}}</td>
+        <td>{{item.countryName}}</td>
+        <td><img wdth="100px" height="100px" src="{{item.image}}"></td>
+        <td><button (click)='onEditCountry(item)' class="btn btn-primary btn-sm mr-3">Edit</button><button (click)="onDeleteCountry(item.countryId)" class="btn btn-danger btn-sm">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-md-2">
+        <label>Records per page</label>
+      <select class="form-control" [(ngModel)]=noOfItemsvar (change)="noOfItemsPerPage()">
+        <option>Select</option>
+        <option *ngFor='let item of noOfItems'>{{item}}</option>
+      </select>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <label>&nbsp;</label>
+
+        <div class="pagination-block">
+            <div class="pagination">
+              <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" [ngClass]="{'disabled':currentPage===1}" (click)='previousPage()'>Previous</a>
+              </li>
+              </ul>
+           
+              <ul class="pagination">
+              <li class="page-item" *ngFor='let item of pages'>
+                <a class="page-link" (click)='currentpage(item)' [ngClass]='{"active":currentPage===item}'>{{item}}</a>
+              </li>
+              </ul>
+           
+              <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" [ngClass]="{'disabled':currentPage===totalPages}" (click)='nextPage()'>Next</a>
+              </li>
+              </ul>
+            
+          </div>
+         </div>
+    </div>
+  </div>
+  
+
+<div class="modal" id="deleteModel">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Delete Country</h3>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure want to Delete</p>
+    </div>
+    <div class="modal-footer">
+      <button (click)="deletecountry()" class="btn btn-danger">Delete</button><button (click)="cancelcountry()" class="btn btn-default ml-3">Cancel</button>
+    </div>>
+</div>
+</div>

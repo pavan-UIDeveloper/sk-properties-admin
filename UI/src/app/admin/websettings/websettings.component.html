@@ -1,0 +1,82 @@
+<body>
+<div class="container mt-5" *ngIf="!isNew">
+  <div class="col-md-12">
+  <button class="btn btn-primary" (click)="addForm()">Add Setting</button>
+</div>
+</div>
+<div class="container" *ngIf="isNew">
+  <div class="col-md-6">
+  <form  (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="from-group">
+        <button (click)="back()" class="btn btn-primary">Back</button>
+      <h3 class="mt-5 text-center text-info">Add your Settings Content Here</h3>
+      <label>Address</label>
+      <textarea class="form-control" name="address" required [(ngModel)]='model.address' #address='ngModel'></textarea>
+      <div class="alert alert-danger" *ngIf="address.invalid && (address.touched || address.dirty)">Address should not be empty</div>
+    </div>
+    <div class="from-group">
+      <label>Mobile Number</label>
+      <input type="text" class="form-control" name="mobile" required [(ngModel)]='model.phoneNumber' #mobile='ngModel'>
+      <div class="alert alert-danger" *ngIf="mobile.invalid && (mobile.touched || mobile.dirty)">Address should not be empty</div>
+    </div>
+    <div class="from-group">
+      <label>Email</label>
+      <input type="email" class="form-control" name="email" required [(ngModel)]='model.email' #email='ngModel'>
+      <div class="alert alert-danger" *ngIf="email.invalid && (email.touched || email.dirty)">Email should not be empty</div>
+    </div>
+    <div class="from-group">
+      <label>About Us</label>
+      <textarea class="form-control" name="about" required [(ngModel)]="model.aboutUs" #about='ngModel'></textarea>
+      <div class="alert alert-danger" *ngIf="about.invalid && (about.touched || about.dirty)">About us should not be empty</div>
+    </div>
+    <div class="from-group">
+      <label>Our Mission Content</label>
+      <textarea class="form-control" name="mission" required [(ngModel)]="model.ourMission" #mission='ngModel'></textarea>
+      <div class="alert alert-danger" *ngIf="mission.invalid && (mission.touched || mission.dirty)">Our MissionContent should not be empty</div>
+    </div>
+  
+    <div class="from-group">
+      <label>Our Vision Content</label>
+      <textarea class="form-control" name="vision" required [(ngModel)]="model.ourVission" #vision='ngModel'></textarea>
+      <div class="alert alert-danger" *ngIf="vision.invalid && (vision.touched || vision.dirty)">Our VisionContent should not be empty</div>
+    </div>
+    <div class="from-group">
+        <button class="btn btn-success mt-3" [disabled]="form.invalid">Save</button>
+      </div>
+  </form>
+</div>
+</div>
+<div class="container mt-5" *ngIf="!isNew">
+<table class="table table-striped" *ngIf="websettings; else display">
+  <thead class="thead-dark">
+<tr>
+  <th>Sl.no</th>
+  <th>Address</th>
+  <th>Phone</th>
+  <th>Email</th>
+  <th>About Us</th>
+  <th>Our Mission Content</th>
+  <th>Our Vision Content</th>
+  <th>Actions</th>
+</tr>
+</thead>
+<tbody>
+  <tr *ngFor="let data of websettings; let i=index">
+    <td>{{i+1}}</td>
+    <td>{{data.address}}</td>
+    <td>{{data.phoneNumber}}</td>
+    <td>{{data.email}}</td>
+    <td>{{data.aboutUs}}</td>
+    <td>{{data.ourMission}}</td>
+    <td>{{data.ourVission}}</td>
+    <td><button (click)="onEditClick(data)">Edit</button> | Delete</td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div class="container">
+ 
+<ng-template #display>No data Found In table</ng-template>
+
+</div>
+</body>

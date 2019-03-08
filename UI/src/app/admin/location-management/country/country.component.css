@@ -1,0 +1,19 @@
+input.ng-touched.ng-invalid{
+    border:1px red solid
+}
+
+.active{
+    background: black;
+    color:white !important;
+}
+.disabled{
+    display: none;
+}
+
+.image_preview{
+    width:200px;
+    height:200px
+}
+.image_preview img{
+height: 200px;
+}

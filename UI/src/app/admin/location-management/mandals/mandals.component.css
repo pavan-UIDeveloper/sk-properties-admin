@@ -1,0 +1,10 @@
+.auto-sug{
+    border:1px solid gray;
+    padding:12px
+}
+
+.hover-class:hover{
+    background-color: aqua;
+    color: blueviolet;
+    cursor: pointer;
+}
